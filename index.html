@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houssein Mansour - Page Personnelle</title>
+    <meta name="description" content="Page personnelle de Houssein Mansour, assistant de recherche à l'Université de Bologne.">
+    <meta name="keywords" content="Houssein Mansour, recherche, Université de Bologne, informatique, mathématiques">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .lang-buttons {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-buttons button {
+            background: #40718a;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 0.9em;
+        }
+
+        .lang-buttons button:hover {
+            background: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-top: 50px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #40718a;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #4d4d4d;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-left: 20px;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .welcome-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .welcome-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .welcome-text h3 {
+            animation: fadeInUp 2s ease-in-out forwards;
+            color: #40718a;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-text p {
+            animation: fadeInUp 2s ease-in-out 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: #40718a;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 1.1em;
+            display: inline-block;
+            margin: 2px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background: #40718a;
+            color: #fff;
+        }
+
+        .content-section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .content-section a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .content-section a:hover {
+            text-decoration: underline;
+        }
+
+        .content-section a.report-link {
+            color: #e60000;
+        }
+
+        .content-section a.report-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #555;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #e60000;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin: 10px 0;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .content-section h3,
+        .content-section h4 {
+            color: #40718a;
+        }
+
+        .content-section h4.workshop-title {
+            color: #333;
+        }
+
+        .content-section:first-of-type {
+            margin-top: -10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .welcome-section {
+                flex-direction: column;
+            }
+
+            .profile-pic {
+                margin: 10px 0;
+            }
+
+            nav a {
+                padding: 8px 10px;
+                font-size: 1em;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            header h2 {
+                font-size: 1.2em;
+            }
+
+            .lang-buttons {
+                position: static;
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+        }
+
+        .dark-mode {
+            background-color: #1c1c1c;
+            color: #f0f0f5;
+        }
+
+        .dark-mode nav a {
+            color: #f0f0f5;
+        }
+
+        .dark-mode .content-section {
+            background: #333;
+        }
+
+        .dark-mode footer {
+            background: #222;
+        }
+    </style>
+    <script>
+        function switchLanguage(language) {
+            document.querySelectorAll('.content').forEach(function (content) {
+                content.classList.remove('active');
+            });
+            document.getElementById(language).classList.add('active');
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const profilePic = document.querySelectorAll('.profile-pic');
+            if (document.body.classList.contains('dark-mode')) {
+                profilePic.forEach(pic => pic.src = 'photo-night.jpg');
+            } else {
+                profilePic.forEach(pic => pic.src = 'photo.jpg');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="lang-buttons">
+            <button onclick="switchLanguage('fr')">Fr</button>
+            <button onclick="switchLanguage('en')">En</button>
+            <button onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+        </div>
+        <h1>Houssein Mansour</h1>
+        <h2>Assistant de recherche</h2>
+    </header>
+
+    <main>
+        <!-- Contenu en français -->
+        <div id="fr" class="content active">
+            <nav>
+                <a href="#home-fr">Accueil</a>
+                <a href="#education-fr">Éducation</a>
+                <a href="#projects-fr">Projets et Stages</a>
+                <a href="#publications-fr">Publications</a>
+                <a href="#experience-fr">Expérience</a>
+                <a href="#skills-fr">Compétences</a>
+                <a href="#interests-fr">Centres d'intérêt</a>
+            </nav>
+
+            <div class="container">
+                <section id="home-fr" class="content-section welcome-section">
+                    <div class="welcome-text">
+                        <h3>Bienvenue sur ma page personnelle</h3>
+                        <p>Je suis Houssein Mansour, assistant de recherche à l'Université de Bologne.</p>
+                        <p>Adresse: 13009, Marseille, France</p>
+                        <p>Contact: <a href="mailto:houssein.mansour@etu.univ-amu.fr" style="color: #1a73e8;">houssein.mansour@etu.univ-amu.fr</a> | Téléphone: +33 7 74 54 68 56</p>
+                    </div>
+                    <img src="photo.jpg" alt="Photo de Houssein Mansour" class="profile-pic">
+                </section>
+
+                <section id="education-fr" class="content-section">
+                    <h3>Éducation</h3>
+                    <ul>
+                        <li>2023 – 2024: Master 2 Informatique et Mathématique Discrète (IMD), à l’université d’Aix-Marseille, avec une moyenne de 14/20, mention Bien.</li>
+                        <li>2022 – 2023: Master 1 Mathématiques et Applications, parcours Informatique et Mathématique Discrète (IMD).</li>
+                        <li>2019 – 2022: Licence en mathématiques, à l’Université Libanaise.</li>
+                        <li>2018 – 2019: Diplôme de secondaire générale, série: sciences générales, au lycée officiel du Mousa et Ismail Abbas (Bint-Jbeil). </li>
+                    </ul>
+                </section>
+
+                <section id="projects-fr" class="content-section">
+                    <h3>Projets et Stages</h3>
+                    <ul>
+                        <li>2023 – 2024: Stage de Master 2 IMD sous la supervision de <a href="https://research.crubille.lautre.net/" class="supervisor">Raphaëlle Crubillé</a>, intitulé "Amplification de la Distance Contextuelle dans les Langages de programmation probabilistes d’ordre supérieur". [<a href="résumé-stage-m2.pdf" target="_blank" class="report-link">résumé</a>|<a href="report-m2.pdf" target="_blank" class="report-link">rapport</a>|<a href="soutenance-m2.pdf" target="_blank" class="report-link">slides</a>]</li>
+                        <li>2022-2023: Travail d’études et de recherche en deuxième semestre du Master 1 MAAP sous la supervision de <a href="https://www.i2m.univ-amu.fr/perso/laurent.regnier/" class="supervisor">Laurent Regnier</a> intitulé "L’escalier glissant du diable" portant sur la fonction point d’interrogation de Minkowski et ses propriétés. [<a href="report-m1.pdf" target="_blank" class="report-link">rapport</a>|<a href="soutenance-m1.pdf" target="_blank" class="report-link">slides</a>]</li>
+                        <li>2021 – 2022: Responsable du club scientifique de mathématiques et d’informatique à l’Université Libanaise FS5, chargé d’organiser des activités liées aux mathématiques et à l’informatique pour les étudiants de ce domaine.</li>
+                    </ul>
+                </section>
+
+                <section id="publications-fr" class="content-section">
+                    <h3>Publications</h3>
+                    <h4 class="workshop-title">Publications dans des workshops</h4>
+                    <ul>
+                        <li><a href="https://icfp24.sigplan.org/details/hope-2024-papers/2/Amplifying-Contextual-Distance-in-Higher-Order-Languages-using-the-Law-of-Large-Numb" target="_blank" class="publication">Amplification de la distance contextuelle dans les langages d'ordre supérieur en utilisant la loi des grands nombres.</a> Raphaelle Crubillé, Houssein Mansour. HOPE 2024 - ICFP 2024. [<a href="hope.pdf" target="_blank" class="report-link">hope</a>] </li>
+                    </ul>
+                </section>
+
+                <section id="experience-fr" class="content-section">
+                    <h3>Expérience Professionnelle</h3>
+                    <ul>
+                        <li>Depuis 2019: Cours particuliers en mathématiques pour lycéens et étudiants universitaires.</li>
+                        <li>2022 – 2023: Tutorat de maths à l’université d’Aix-Marseille.</li>
+                        <li>2021: Enseignement à distance aux étudiants de première année à l’université, portant sur les sujets d’intégration et de séries numériques. Cette formation a été dispensée via l’application Google Classroom, et elle a attiré la participation de 98 étudiants.</li>
+                    </ul>
+                </section>
+
+                <section id="skills-fr" class="content-section">
+                    <h3>Compétences</h3>
+                    <ul>
+                        <li>Langues: Français (très bien), Anglais (bien), Arabe (langue maternelle).</li>
+                        <li>Logiciels: C++, Python, Matlab et Octave, Maple.</li>
+                        <li>Outils: Microsoft Word, Excel, Power Point, LATEX.</li>
+                    </ul>
+                </section>
+
+                <section id="interests-fr" class="content-section">
+                    <h3>Centres d'intérêt</h3>
+                    <ul>
+                        <li>Logique, lambda calcul, automates, algorithmique, combinatoire, théorie des graphes, méthodes formelles, théorie des langages de programmation, cryptographie.</li>
+                        <li>Lecture des livres de théorie de mathématiques et découverte des mathématiques profondes.</li>
+                        <li>Histoire des mathématiques et des mathématiciens.</li>
+                        <li>Programmation en général et programmation utilisée en mathématiques en particulier.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+        <!-- Contenu en anglais -->
+        <div id="en" class="content">
+            <nav>
+                <a href="#home-en">Home</a>
+                <a href="#education-en">Education</a>
+                <a href="#projects-en">Projects and Internships</a>
+                <a href="#publications-en">Publications</a>
+                <a href="#experience-en">Experience</a>
+                <a href="#skills-en">Skills</a>
+                <a href="#interests-en">Interests</a>
+            </nav>
+
+            <div class="container">
+                <section id="home-en" class="content-section welcome-section">
+                    <div class="welcome-text">
+                        <h3>Welcome to my personal page</h3>
+                        <p>I am Houssein Mansour, a research assistant at the University of Bologna.</p>
+                        <p>Address: 13009, Marseille, France</p>
+                        <p>Contact: <a href="mailto:houssein.mansour@etu.univ-amu.fr" style="color: #1a73e8;">houssein.mansour@etu.univ-amu.fr</a> | Phone: +33 7 74 54 68 56</p>
+                    </div>
+                    <img src="photo.jpg" alt="Photo of Houssein Mansour" class="profile-pic">
+                </section>
+
+                <section id="education-en" class="content-section">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>2023 – 2024: Master 2 in Computer Science and Discrete Mathematics (IMD) at Aix-Marseille University, with an average of 14/20, honors.</li>
+                        <li>2022 – 2023: Master 1 in Mathematics and Applications, Discrete Mathematics and Computer Science (IMD) program, at Aix-Marseille University.</li>
+                        <li>2019 – 2022: Bachelor's degree in Mathematics at the Lebanese University.</li>
+                        <li>2018 – 2019: General secondary school diploma, General Sciences series, at Mousa and Ismail Abbas Official High School (Bint-Jbeil).</li>
+                    </ul>
+                </section>
+
+                <section id="projects-en" class="content-section">
+                    <h3>Projects and Internships</h3>
+                    <ul>
+                        <li>2023 – 2024: Master 2 IMD internship under the supervision of <a href="https://research.crubille.lautre.net/" class="supervisor">Raphaëlle Crubillé</a>, entitled "Amplification of Contextual Distance in Higher-Order Probabilistic Programming Languages". [<a href="report-m2.pdf" target="_blank" class="report-link">report (in french)</a>]</li>
+                        <li>2022-2023: Study and research work in the second semester of Master 1 MAAP under the supervision of <a href="https://www.i2m.univ-amu.fr/perso/laurent.regnier/" class="supervisor">Laurent Regnier</a>, entitled "The Devil's Slippery Staircase" on the Minkowski question mark function and its properties. [<a href="report-m1.pdf" target="_blank" class="report-link">report (in french)</a>]</li>
+                        <li>2021 – 2022: Head of the mathematics and computer science scientific club at the Lebanese University FS5, responsible for organizing activities related to mathematics and computer science for students in this field.</li>
+                    </ul>
+                </section>
+
+                <section id="publications-en" class="content-section">
+                    <h3>Publications</h3>
+                    <h4 class="workshop-title">Publications in a Workshop</h4>
+                    <ul>
+                        <li><a href="https://icfp24.sigplan.org/details/hope-2024-papers/2/Amplifying-Contextual-Distance-in-Higher-Order-Languages-using-the-Law-of-Large-Numb" target="_blank" class="publication">Amplifying Contextual Distance in Higher-Order Languages using the Law of Large Numbers</a>. Raphaelle Crubillé, Houssein Mansour. HOPE 2024 - ICFP 2024. [<a href="hope.pdf" target="_blank" class="report-link">hope</a>]</li>
+                    </ul>
+                </section>
+
+                <section id="experience-en" class="content-section">
+                    <h3>Professional Experience</h3>
+                    <ul>
+                        <li>Since 2019: Private tutoring in mathematics for high school and university students.</li>
+                        <li>2022 – 2023: Math tutoring at Aix-Marseille University.</li>
+                        <li>2021: Distance teaching for first-year university students on the subjects of integration and numerical series. This training was provided via Google Classroom and attracted the participation of 98 students.</li>
+                    </ul>
+                </section>
+
+                <section id="skills-en" class="content-section">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>Languages: French (very good), English (good), Arabic (native).</li>
+                        <li>Software: C++, Python, Matlab and Octave, Maple.</li>
+                        <li>Tools: Microsoft Word, Excel, Power Point, LATEX.</li>
+                    </ul>
+                </section>
+
+                <section id="interests-en" class="content-section">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Logic, lambda calculus, automata, algorithmics, combinatorics, graph theory, formal methods, programming language theory, cryptography.</li>
+                        <li>Reading books on mathematical theory and discovering deep mathematics.</li>
+                        <li>History of mathematics and mathematicians.</li>
+                        <li>Programming in general and programming used in mathematics in particular.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="mailto:houssein.mansour@etu.univ-amu.fr" style="color: #e60000;">Contact</a> |
+            <a href="https://www.linkedin.com/in/houssein-mansour-b50899212" target="_blank" style="color: #e60000;">LinkedIn</a> |
+            <span>Adresse: 13009, Marseille, France</span>
+        </div>
+        <p>© 2024 Houssein Mansour. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
